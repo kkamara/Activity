@@ -29,11 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         goToButton = findViewById(R.id.button_go_to_activity)
         goToButton.setOnClickListener {
-//            val intent = Intent(this@MainActivity, SecondActivity::class.java)
-//            startActivity(intent)
-            Intent(this@MainActivity, SecondActivity::class.java).also {
-                startActivity(it)
-            }
+//            Intent(this@MainActivity, SecondActivity::class.java).also {
+//                startActivity(it)
+//            }
+            val intent = Intent(this@MainActivity, SecondActivity::class.java)
+            intent.putExtra(Constants.INTENT_MESSAGE_KEY, "Hello from first activity.")
+            intent.putExtra(Constants.INTENT_MESSAGE_2_KEY, "How was your day?")
+            intent.putExtra(Constants.INTENT_DATA_NUMBER, 3.14)
+            startActivity(intent)
         }
     }
 
